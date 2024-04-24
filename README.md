@@ -17,3 +17,7 @@ The string consists of two parts:
 and "5672" is the port number used by the AMQP service to accept connections.
 
 So, this string is used to identify the user (username and password) and the location of the AMQP service to be accessed.
+
+**Simulation slow subscriber**
+![Screenshot (462)](https://github.com/sitaamirasyarifah/modul8-subscriber/assets/122429830/1353ab6c-ee0f-4ccb-b547-f5d01f72089f)
+From the above image, it can be seen that the total number of messages queued at any given time is approximately 10 messages (I ran cargo run 4 times). This occurs because the subscriber requires more time to process each event in the message queue, resulting in message backlog because the publisher is faster at publishing messages than the subscriber is at processing them.
