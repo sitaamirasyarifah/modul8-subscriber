@@ -21,3 +21,8 @@ So, this string is used to identify the user (username and password) and the loc
 **Simulation slow subscriber**
 ![Screenshot (462)](https://github.com/sitaamirasyarifah/modul8-subscriber/assets/122429830/1353ab6c-ee0f-4ccb-b547-f5d01f72089f)
 From the above image, it can be seen that the total number of messages queued at any given time is approximately 10 messages (I ran cargo run 4 times). This occurs because the subscriber requires more time to process each event in the message queue, resulting in message backlog because the publisher is faster at publishing messages than the subscriber is at processing them.
+
+**Reflection and Running at least three subscribers**
+![Screenshot (462)](https://github.com/sitaamirasyarifah/modul8-subscriber/assets/122429830/1353ab6c-ee0f-4ccb-b547-f5d01f72089f)
+
+From the above image, it can be observed that the spike in message queue has decreased compared to before using 3 console subscribers. This is because the main.rs file in the subscriber contains a sleep function (thread::sleep(ten_millis);) which introduces a delay of 1 second (1000 milliseconds) before printing messages. Due to this delay, the program is given more time to process messages sequentially, reducing the queue buildup. Additionally, the use of 3 console subscribers running cargo run simultaneously could also contribute to the reduction in the spike.
